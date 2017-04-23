@@ -1,7 +1,7 @@
-_nameit_autocomplete() 
+_goto_autocomplete() 
 {
 
-	#COMPREPLY is an array variable from which Bash reads the possible completions.
+    #COMPREPLY is an array variable from which Bash reads the possible completions.
     #COMP_CWORD is an index of the word containing the current cursor position.
     #COMP_WORDS is an array containing all individual words in the current command line
    
@@ -12,13 +12,14 @@ _nameit_autocomplete()
      
     cur="${COMP_WORDS[COMP_CWORD]}" 
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts="test test2 test3" #
+    opts=$( for i in $( ls ~/.nameit ); do echo $i ; done )
+    #opts="test1 test2 test3"
 
-    # if [[ ${cur} == -* ]] ; then
-    #     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-    #     return 0
-    # fi
+     if [[ ${cur} == -* ]] ; then
+         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+         return 0
+     fi
 
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
 }
-complete -F _nameit_autocomplete nameit
+complete -F _goto_autocomplete goto

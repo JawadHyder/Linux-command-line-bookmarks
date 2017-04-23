@@ -8,7 +8,7 @@ fi
 sudo cp ./nameit.sh /bin/nameit
 sudo cp ./goto.sh /bin/goto
 
-sudo cp ./nameit_autocomplete /etc/bash_completion.d/
+sudo cp ./goto_autocomplete /etc/bash_completion.d/
 
 sudo chmod +x /bin/nameit
 sudo chmod +x /bin/goto
