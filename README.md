@@ -33,4 +33,11 @@ Run this after adding the above line
 source ~/.bashrc 
 ```
 
+# Zsh complition
+Please enable bash completions if using zsh to get hints on double tab
+```sh
+autoload bashcompinit
+bashcompinit
+```
+
 # All done!
