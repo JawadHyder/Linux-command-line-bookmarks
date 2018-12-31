@@ -5,14 +5,17 @@ if [ -f ${HOME}/bin/nameit ] || [ -f ${HOME}/bin/goto ]; then
 	exit 0
 fi
 
+mkdir -p ${HOME}/bin &
 cp ./nameit.sh ${HOME}/bin/nameit
 cp ./goto.sh ${HOME}/bin/goto
 
-cp ./goto_autocomplete /etc/bash_completion.d/
+sudo cp ./goto_autocomplete /etc/bash_completion.d/
 
 chmod +x ${HOME}/bin/nameit
 chmod +x ${HOME}/bin/goto
 
+echo alias goto=". goto" >> ${HOME}/.profile
+
 echo "Initializing.... Now you can use nameit and goto commands."
-echo "Please run this command to complete initialization."
+echo "If you are unable to run `goto`, please run this first:"
 echo "alias goto=\". goto\""
