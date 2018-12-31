@@ -1,17 +1,17 @@
 #!/bin/bash
 
-if [ -f /bin/nameit ] || [ -f /bin/goto ]; then
-	echo "Cannot initialize. /bin/nameit or /bin/goto command already exist"
+if [ -f ${HOME}/bin/nameit ] || [ -f ${HOME}/bin/goto ]; then
+	echo "Cannot initialize. ${HOME}/bin/nameit or ${HOME}/bin/goto command already exist"
 	exit 0
 fi
 
-sudo cp ./nameit.sh /bin/nameit
-sudo cp ./goto.sh /bin/goto
+cp ./nameit.sh ${HOME}/bin/nameit
+cp ./goto.sh ${HOME}/bin/goto
 
-sudo cp ./goto_autocomplete /etc/bash_completion.d/
+cp ./goto_autocomplete /etc/bash_completion.d/
 
-sudo chmod +x /bin/nameit
-sudo chmod +x /bin/goto
+chmod +x ${HOME}/bin/nameit
+chmod +x ${HOME}/bin/goto
 
 echo "Initializing.... Now you can use nameit and goto commands."
 echo "Please run this command to complete initialization."
